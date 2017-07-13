@@ -1,0 +1,50 @@
+{
+  "name": "instana_agent",
+  "version": "0.0.1",
+  "author": "Stefan Staudenmeyer <stefan.staudenmeyer@instana.com>",
+  "summary": "Installs/Configures instana_agent",
+  "license": "Apache-2.0",
+  "source": "https://github.com/instana/puppet-module",
+  "project_page": "https://github.com/instana/puppet-module",
+  "issues_url": "https://github.com/instana/puppet-module/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 4.15.0 <= 5.0.0"
+    },
+    {
+      "name": "puppetlabs-apt",
+      "version_requirement": ">= 4.0.0 <= 5.0.0"
+    }
+  ],
+  "tags": ["apm", "monitoring", "performance", "instana", "visibility"],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">=4.10.0 < 6.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": ["6", "7"]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": ["6", "7"]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": ["8"]
+    },
+    {
+      "operatingsystem": "Suse",
+      "operatingsystemrelease": ["12"]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": ["14.04", "16.04"]
+    }
+  ]
+}
+
