@@ -50,6 +50,7 @@ class instana_agent::required_config {
   file { "${$dir}mvn-settings.xml":
     ensure  => 'file',
     content => epp('instana_agent/mvn-settings.epp', {
+      'agent_key'            => $instana_agent::instana_agent_key,
       'mirrors_enabled'      => $instana_agent::instana_agent_mirror_enabled,
       'mirrors_require_auth' => $instana_agent::instana_agent_mirror_auth_enabled,
       'mirrors_username'     => $instana_agent::instana_agent_mirror_auth_username,

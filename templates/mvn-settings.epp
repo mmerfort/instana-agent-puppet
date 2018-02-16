@@ -6,13 +6,13 @@
   <servers>
     <server>
       <id>features</id>
-      <username>agent</username>
-      <password>***REMOVED***</password>
+      <username>_</username>
+      <password><%= $agent_key %></password>
     </server>
     <server>
       <id>shared</id>
-      <username>agent</username>
-      <password>***REMOVED***</password>
+      <username>_</username>
+      <password><%= $agent_key %></password>
     </server>
     <% if $mirrors_require_auth { %>
       <server>
@@ -51,8 +51,8 @@
        If the mirror also requires auth it can be added above. -->
   <!-- https://maven.apache.org/guides/mini/guide-mirror-settings.html -->
   <!-- Repos that need to be mirrored -->
-  <!-- feature: https://repo-public.instana.io/artifactory/features-public -->
-  <!-- shared: https://repo-public.instana.io/artifactory/shared -->
+  <!-- feature: https://artifact-public.instana.io/artifactory/features-public -->
+  <!-- shared: https://artifact-public.instana.io/artifactory/shared -->
   <% if $mirrors_enabled { %>
   <mirrors>
     <mirror>
