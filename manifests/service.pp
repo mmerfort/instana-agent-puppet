@@ -31,7 +31,7 @@ class instana_agent::service {
     file { $dir:
       ensure => 'directory',
       group  => 'root',
-      mode   => '0644',
+      mode   => '0750',
       owner  => 'root',
     }
 
@@ -51,7 +51,7 @@ class instana_agent::service {
         ensure  => 'file',
         content => "[Service]\n${$resource_template}",
         group   => 'root',
-        mode    => '0644',
+        mode    => '0640',
         owner   => 'root',
       }
     }

@@ -41,7 +41,7 @@ class instana_agent::config {
       'zone' => $instana_agent::instana_agent_zone,
     }),
     group   => 'root',
-    mode    => '0644',
+    mode    => '0640',
     owner   => 'root',
   }
 
@@ -61,7 +61,7 @@ class instana_agent::config {
       'update_time'     => $instana_agent::instana_agent_update_time,
     }),
     group   => 'root',
-    mode    => '0644',
+    mode    => '0640',
     owner   => 'root',
   }
 
@@ -71,7 +71,7 @@ class instana_agent::config {
       'version' => $instana_agent::instana_agent_update_pin
     }),
     group   => 'root',
-    mode    => '0644',
+    mode    => '0640',
     owner   => 'root',
   }
 }

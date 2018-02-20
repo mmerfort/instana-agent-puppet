@@ -42,7 +42,7 @@ class instana_agent::required_config {
       'proxy_password' => $instana_agent::instana_agent_proxy_password,
     }),
     group   => 'root',
-    mode    => '0644',
+    mode    => '0640',
     owner   => 'root',
     require => Class['::instana_agent::service']
   }
@@ -65,7 +65,7 @@ class instana_agent::required_config {
       'proxy_password'       => $instana_agent::instana_agent_proxy_password,
     }),
     group   => 'root',
-    mode    => '0644',
+    mode    => '0640',
     owner   => 'root',
     require => Class['::instana_agent::service']
   }
