@@ -69,4 +69,13 @@ class instana_agent::required_config {
     owner   => 'root',
     require => Class['::instana_agent::service']
   }
+
+  file { "${$dir}org.ops4j.pax.url.mvn.cfg":
+    ensure  => 'file',
+    content => epp('instana_agent/pax-mvn-cfg.epp'),
+    group   => 'root',
+    mode    => '0640',
+    owner   => 'root',
+    require => Class['::instana_agent::service']
+  }
 }
