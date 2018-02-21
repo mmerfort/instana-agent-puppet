@@ -4,9 +4,9 @@
   "author": "Stefan Staudenmeyer <stefan.staudenmeyer@instana.com>",
   "summary": "Installs/Configures instana_agent",
   "license": "Apache-2.0",
-  "source": "https://github.com/instana/puppet-module",
-  "project_page": "https://github.com/instana/puppet-module",
-  "issues_url": "https://github.com/instana/puppet-module/issues",
+  "source": "https://github.com/instana/instana-agent-puppet",
+  "project_page": "https://github.com/instana/instana-agent-puppet",
+  "issues_url": "https://github.com/instana/instana-agent-puppet/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
