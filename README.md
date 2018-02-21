@@ -23,7 +23,7 @@ See [our official documentation](https://docs.instana.com).
 
 ## Hiera-Lookups
 
-* They completely match the ones in our [Chef cookbook](https://github.com/instana/puppet-module/blob/master/attributes/default.rb).
+* They completely match the ones in our [Chef cookbook](https://github.com/instana/instana-agent-cookbook/blob/master/attributes/default.rb).
 
 ## License and Authors
 
