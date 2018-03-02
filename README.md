@@ -34,4 +34,12 @@ This cookbook is being submitted and maintained under the [Apache v2.0 License](
 * [Zachary Schneider](https://github.com/sigil66 "Zachary Schneider")
 * [Stefan Staudenmeyer](https://github.com/doerteDev "Stefan Staudenmeyer")
 
+# Publish to the Forge with Travis CI
+
+* Update the version number in the module’s metadata.json file and commit the change to the module repository.
+* Tag the module repo with the desired version number.
+* Push the commit and tag to your Git repository.
+
+Travis CI will build and publish the module.
+
 Copyright 2017, INSTANA Inc.
