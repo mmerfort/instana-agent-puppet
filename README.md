@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/instana/instana-agent-puppet.svg?branch=master)](https://travis-ci.org/instana/instana-agent-puppet)
+
 # instana-agent puppet module
 
 This [Puppet](https://puppet.com/) module installs, configures and runs
