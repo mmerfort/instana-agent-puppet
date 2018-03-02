@@ -1,5 +1,5 @@
 {
-  "name": "instana-agent-puppet",
+  "name": "instana-agent",
   "version": "0.0.1",
   "author": "Stefan Staudenmeyer <stefan.staudenmeyer@instana.com>",
   "summary": "Installs/Configures instana_agent",
