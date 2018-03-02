@@ -1,6 +1,6 @@
 {
   "name": "instana-agent",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Zachary Schneider <zachary.schneider@instana.com, Stefan Staudenmeyer <stefan.staudenmeyer@instana.com>",
   "summary": "Installs/Configures instana_agent",
   "license": "Apache-2.0",
