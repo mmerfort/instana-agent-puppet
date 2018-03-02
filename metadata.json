@@ -1,7 +1,7 @@
 {
   "name": "instana-agent",
   "version": "1.0.0",
-  "author": "Stefan Staudenmeyer <stefan.staudenmeyer@instana.com>",
+  "author": "Zachary Schneider <zachary.schneider@instana.com, Stefan Staudenmeyer <stefan.staudenmeyer@instana.com>",
   "summary": "Installs/Configures instana_agent",
   "license": "Apache-2.0",
   "source": "https://github.com/instana/instana-agent-puppet",
