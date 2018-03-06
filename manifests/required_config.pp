@@ -72,7 +72,9 @@ class instana_agent::required_config {
 
   file { "${$dir}org.ops4j.pax.url.mvn.cfg":
     ensure  => 'file',
-    content => epp('instana_agent/pax-mvn-cfg.epp'),
+    content => epp('instana_agent/pax-mvn-cfg.epp', {
+      'flavor' => $instana_agent::instana_agent_flavor
+    }),
     group   => 'root',
     mode    => '0640',
     owner   => 'root',
