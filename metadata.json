@@ -1,5 +1,5 @@
 {
-  "name": "instana-agent",
+  "name": "instana-instana_agent",
   "version": "1.0.2",
   "author": "Stefan Staudenmeyer <stefan.staudenmeyer@instana.com>",
   "summary": "Installs/Configures instana_agent",
@@ -10,40 +10,67 @@
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
-      "version_requirement": ">= 4.15.0 <= 5.0.0"
+      "version_requirement": ">= 4.15.0 < 6.0.0"
     },
     {
       "name": "puppetlabs-apt",
-      "version_requirement": ">= 4.0.0 <= 5.0.0"
-    }
-  ],
-  "tags": ["apm", "monitoring", "performance", "instana", "visibility"],
-  "requirements": [
+      "version_requirement": ">= 4.0.0 < 7.0.0"
+    },
     {
-      "name": "puppet",
-      "version_requirement": ">=4.10.0 < 6.0.0"
+      "name": "camptocamp-systemd",
+      "version_requirement": ">= 2.0.0 < 3.0.0"
     }
   ],
   "operatingsystem_support": [
     {
       "operatingsystem": "RedHat",
-      "operatingsystemrelease": ["6", "7"]
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
     },
     {
       "operatingsystem": "CentOS",
-      "operatingsystemrelease": ["6", "7"]
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
     },
     {
       "operatingsystem": "Debian",
-      "operatingsystemrelease": ["8"]
+      "operatingsystemrelease": [
+        "8",
+        "9"
+      ]
     },
     {
       "operatingsystem": "Suse",
-      "operatingsystemrelease": ["12"]
+      "operatingsystemrelease": [
+        "12"
+      ]
     },
     {
       "operatingsystem": "Ubuntu",
-      "operatingsystemrelease": ["14.04", "16.04"]
+      "operatingsystemrelease": [
+        "16.04",
+        "18.04"
+      ]
     }
-  ]
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.10.0 < 7.0.0"
+    }
+  ],
+  "tags": [
+    "apm",
+    "monitoring",
+    "performance",
+    "instana",
+    "visibility"
+  ],
+  "pdk-version": "1.9.0",
+  "template-url": "https://github.com/puppetlabs/pdk-templates/",
+  "template-ref": "1.9.0-0-g7281db5"
 }

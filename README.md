@@ -19,19 +19,20 @@ This "gated" agent package is supposed to not connect to the internet at all. It
 
 If you're an onprem customer, please specify your hostname and port in the corresponding attributes. If you're using our SaaS offering, and don't know which endpoint the agent should send to, feel free to ask our sales team.
 
+## Documentation
+
+
+
 ## Supported operating systems
 
 See [our official documentation](https://docs.instana.com).
 
-## Hiera-Lookups
-
-* They completely match the ones in our [Chef cookbook](https://github.com/instana/instana-agent-cookbook/blob/master/attributes/default.rb).
-
 ## License and Authors
 
-This cookbook is being submitted and maintained under the [Apache v2.0 License](https://github.com/instana/cookbook/blob/master/LICENSE).
+This module is being submitted and maintained under the [Apache v2.0 License](https://github.com/instana/cookbook/blob/master/LICENSE).
 
 * [Zachary Schneider](https://github.com/sigil66 "Zachary Schneider")
 * [Stefan Staudenmeyer](https://github.com/doerteDev "Stefan Staudenmeyer")
+* [Martin Merfort](https://github.com/mmerfort "Martin Merfort")
 
 Copyright 2017, INSTANA Inc.

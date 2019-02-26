@@ -1,3 +1,5 @@
+# This file is managed by Puppet
+
 # Instana Update Manager configuration.
 # AUTO for automatic updates with given schedule. OFF for no automatic updates.
 mode = <%= $update_enabled %>

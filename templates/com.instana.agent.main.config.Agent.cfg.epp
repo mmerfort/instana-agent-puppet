@@ -1,0 +1,6 @@
+# This file is managed by Puppet
+# Internal Instana Agent configuration.
+scheduler.threads = <%= $scheduler_threads %>
+http.threads = <%= $http_threads %>
+use-cloud-provider-id = <%= $use_cloud_provider_id %>
+mode = <%= $mode.upcase %>
