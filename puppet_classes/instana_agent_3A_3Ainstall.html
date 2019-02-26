@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Puppet Class: instana_agent::install
+  
+    &mdash; Documentation by YARD 0.9.18
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "puppet_classes::instana_agent::install";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../puppet_class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (i)</a> &raquo;
+    <span class='title'><span class='object_link'>Puppet Classes</span></span>
+     &raquo; 
+    <span class="title">instana_agent::install</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="../puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Puppet Class: instana_agent::install</h1>
+<div class="box_info">
+  
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>
+      manifests/install.pp
+    </dd>
+  </dl>
+</div>
+
+  <h2>Summary</h2>
+  Install repositories, keys and the agent package
+
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+  </div>
+</div>
+
+
+<div class="tags">
+  
+
+</div><div class="method_details_list">
+  <table class="source_code">
+    <tr>
+      <td>
+        <pre class="lines">
+
+
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74</pre>
+      </td>
+      <td>
+        <pre class="code"><span class="info file"># File 'manifests/install.pp', line 5</span>
+
+class instana_agent::install {
+  assert_private()
+  if $instana_agent::manage_repository {
+    $pkg_src   = &quot;https://_:${$instana_agent::key}@packages.instana.io/agent&quot;
+
+    case $facts[&#39;os&#39;][&#39;family&#39;] {
+      &#39;Debian&#39;: {
+        include apt
+
+        apt::key { &#39;puppetlabs&#39;:
+          ensure =&gt; &#39;present&#39;,
+          id     =&gt; &#39;B878152E2F084D46F878FA20BED2D0969BAD82DE&#39;,
+          source =&gt; &#39;https://packages.instana.io/Instana.gpg&#39;,
+        }
+
+        apt::source { &#39;instana-agent&#39;:
+          ensure       =&gt; &#39;present&#39;,
+          architecture =&gt; &#39;amd64&#39;,
+          include      =&gt; {
+            &#39;src&#39; =&gt; false,
+            &#39;deb&#39; =&gt; true,
+          },
+          location     =&gt; $pkg_src,
+          release      =&gt; &#39;generic&#39;,
+          repos        =&gt; &#39;main&#39;,
+        }
+        Apt::Source[&#39;instana-agent&#39;]
+        ~&gt; Package[&quot;instana-agent-${$instana_agent::flavor}&quot;]
+      }
+      &#39;Suse&#39;: {
+        exec { &#39;import gpg key&#39;:
+          command =&gt; &#39;/bin/rpm --import https://packages.instana.io/Instana.gpg&#39;,
+          unless  =&gt; &#39;/bin/rpm -q gpg-pubkey | grep gpg-pubkey-9bad82de-574bdebd &#39;,
+        }
+
+        zypprepo { &#39;Instana-Agent&#39;:
+          baseurl  =&gt; &quot;${$pkg_src}/generic/x86_64&quot;,
+          enabled  =&gt; 1,
+          name     =&gt; &#39;Instana-Agent&#39;,
+          gpgkey   =&gt; &#39;https://packages.instana.io/Instana.gpg&#39;,
+          gpgcheck =&gt; 1,
+          type     =&gt; &#39;rpm-md&#39;,
+          require  =&gt; Exec[&#39;import gpg key&#39;],
+        }
+        Zypprepo[&#39;Instana-Agent&#39;]
+        ~&gt; Package[&quot;instana-agent-${$instana_agent::flavor}&quot;]
+      }
+      &#39;RedHat&#39;: {
+        yumrepo { &#39;Instana-Agent&#39;:
+          ensure        =&gt; &#39;present&#39;,
+          assumeyes     =&gt; true,
+          baseurl       =&gt; &quot;${$pkg_src}/generic/x86_64&quot;,
+          enabled       =&gt; true,
+          gpgkey        =&gt; &#39;https://packages.instana.io/Instana.gpg&#39;,
+          gpgcheck      =&gt; true,
+          repo_gpgcheck =&gt; true,
+          sslverify     =&gt; true,
+        }
+        Yumrepo[&#39;Instana-Agent&#39;]
+        ~&gt; Package[&quot;instana-agent-${$instana_agent::flavor}&quot;]
+      }
+      default: {
+        fail(&quot;OS family &#39;${facts[&#39;os&#39;][&#39;family&#39;]}&#39; not supported.&quot;)
+      }
+    }
+  }
+  package { &quot;instana-agent-${$instana_agent::flavor}&quot;:
+    ensure =&gt; &#39;installed&#39;,
+  }
+}</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+
+      <div id="footer">
+     Generated by <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>.
+</div>
+
+    </div>
+  </body>
+</html>
