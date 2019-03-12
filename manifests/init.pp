@@ -111,6 +111,6 @@ class instana_agent(
 
   Class['instana_agent::install']
   -> Class['instana_agent::config']
-  -> Class['instana_agent::service']
   -> Class['instana_agent::required_config']
+  -> Class['instana_agent::service']
 }
