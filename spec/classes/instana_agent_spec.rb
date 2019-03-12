@@ -23,12 +23,12 @@ describe 'instana_agent' do
               .that_requires('Class[instana_agent::install]')
           end
           it do
-            is_expected.to contain_class('instana_agent::service')
+            is_expected.to contain_class('instana_agent::required_config')
               .that_requires('Class[instana_agent::config]')
           end
           it do
-            is_expected.to contain_class('instana_agent::required_config')
-              .that_requires('Class[instana_agent::service]')
+            is_expected.to contain_class('instana_agent::service')
+              .that_requires('Class[instana_agent::required_config]')
           end
         end
 
