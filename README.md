@@ -21,7 +21,7 @@ If you're an onprem customer, please specify your hostname and port in the corre
 
 ## Documentation
 
-The documentation is automatically generated with puppet-strings and can be viewed [here](https://sixt.github.io/instana-agent-puppet/index.html)
+The documentation is automatically generated with puppet-strings and can be viewed [here](REFERENCE.md)
 
 ## Supported operating systems
 
