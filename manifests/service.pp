@@ -34,7 +34,7 @@ class instana_agent::service {
   }
 
   service { 'instana-agent':
-    ensure => 'running',
-    enable => true,
+    ensure => $instana_agent::service_ensure,
+    enable => $instana_agent::service_enable,
   }
 }

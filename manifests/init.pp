@@ -6,6 +6,10 @@
 #   }
 # @param key
 #   Instana license key
+# @param service_ensure
+#   Set the instana-agent service status
+# @param service_enable
+#   Enable or disable the instana-agent service
 # @param endpoint_host
 #   Url of the Instana endpoint host
 # @param endpoint_port
@@ -72,6 +76,8 @@
 #
 class instana_agent(
   String                           $key,
+  Stdlib::Ensure::Service          $service_ensure        = 'running',
+  Boolean                          $service_enable        = true,
   String                           $endpoint_host         = 'saas-us-west-2.instana.io',
   Stdlib::Port                     $endpoint_port         = 443,
   Enum['dynamic','static']         $flavor                = 'static',

@@ -168,7 +168,10 @@ describe 'instana_agent' do
 
         describe 'service configuration' do
           it do
-            is_expected.to contain_service('instana-agent')
+            is_expected.to contain_service('instana-agent').with(
+              ensure: 'running',
+              enable: true,
+            )
           end
 
           if facts['systemd']
@@ -288,6 +291,24 @@ describe 'instana_agent' do
               owner: 'root',
               mode: '0640',
             ).with_content(%r{org.ops4j.pax.url.mvn.defaultLocalRepoAsRemote=true})
+          end
+        end
+      end
+      describe 'with service disable and set to stopped' do
+        let(:params) do
+          {
+            key: 'testkey',
+            service_ensure: 'stopped',
+            service_enable: false,
+          }
+        end
+
+        describe 'service configuration' do
+          it do
+            is_expected.to contain_service('instana-agent').with(
+              ensure: 'stopped',
+              enable: false,
+            )
           end
         end
       end

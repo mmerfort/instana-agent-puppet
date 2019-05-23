@@ -42,6 +42,22 @@ Data type: `String`
 
 Instana license key
 
+##### `service_ensure`
+
+Data type: `Stdlib::Ensure::Service`
+
+Set the instana-agent service status
+
+Default value: 'running'
+
+##### `service_enable`
+
+Data type: `Boolean`
+
+Enable or disable the instana-agent service
+
+Default value: `true`
+
 ##### `endpoint_host`
 
 Data type: `String`
